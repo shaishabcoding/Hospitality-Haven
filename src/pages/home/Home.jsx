@@ -1,7 +1,9 @@
-import auth from "../../firebase/firebase.init";
+import { useContext } from "react";
+import AuthContext from "../../contexts/auth/AuthContext";
 
 const Home = () => {
-  console.log(auth);
+  const { name } = useContext(AuthContext);
+  console.log(name);
   return (
     <div>
       <h2>This is home</h2>
