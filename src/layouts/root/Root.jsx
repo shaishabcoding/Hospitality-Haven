@@ -3,9 +3,12 @@ import Navbar from "../../shared/navbar/Navbar";
 const Root = () => {
   return (
     <div className="font-source">
-      <Navbar></Navbar>
-      <h2>This is root</h2>
-      <Outlet></Outlet>
+      <div className="lg:mx-28 lg:mt-6">
+        <Navbar></Navbar>
+        <div className="my-6 lg:my-10">
+          <Outlet></Outlet>
+        </div>
+      </div>
     </div>
   );
 };

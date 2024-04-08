@@ -3,15 +3,20 @@ import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
   signInWithEmailAndPassword,
+  signInWithPopup,
   updateProfile,
 } from "firebase/auth";
 import auth from "../../firebase/firebase.init";
 import PropTypes from "prop-types";
 import AuthContext from "../../contexts/auth/AuthContext";
+import { toast } from "react-toastify";
+import { GoogleAuthProvider, GithubAuthProvider } from "firebase/auth";
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const googleProvider = new GoogleAuthProvider();
+  const githubProvider = new GithubAuthProvider();
   const createUser = ({ email, password, name, image }, callback = null) => {
     setIsLoading(true);
     createUserWithEmailAndPassword(auth, email, password).then(({ user }) => {
@@ -29,13 +34,26 @@ const AuthProvider = ({ children }) => {
         callback && callback(user);
       })
       .catch(() => {
-        alert("Invalid email or password");
+        toast.error("Invalid email or password");
       });
   };
   const logOut = () => {
     setIsLoading(true);
     auth.signOut();
   };
+
+  const signUp = (provider, callback = null) => {
+    signInWithPopup(auth, provider)
+      .then(({ user }) => {
+        callback && callback(user);
+      })
+      .catch(({ message }) => {
+        toast.error(message);
+      });
+  };
+
+  const googleSignUp = (callback = null) => signUp(googleProvider, callback);
+  const githubSignUp = (callback = null) => signUp(githubProvider, callback);
 
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (user) => {
@@ -52,6 +70,9 @@ const AuthProvider = ({ children }) => {
     logOut,
     logIn,
     isLoading,
+    signUp,
+    googleSignUp,
+    githubSignUp,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

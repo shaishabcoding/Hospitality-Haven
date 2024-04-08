@@ -18,12 +18,20 @@ const Navbar = () => {
           <li>
             <NavLink to="/profile">Profile</NavLink>
           </li>
+          <li className="md:hidden">
+            <button
+              className="btn btn-xs text-xs p-0 bg-white"
+              onClick={logOut}
+            >
+              Logout
+            </button>
+          </li>
         </>
       )}
     </>
   );
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-gray-200 lg:rounded-lg">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -49,7 +57,7 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <Link to="/" className="btn btn-ghost text-xl">
+        <Link to="/" className="btn btn-ghost md:text-xl">
           Hospitality Haven
         </Link>
       </div>
@@ -57,26 +65,29 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end flex items-center">
-        <div
-          className="tooltip mr-4 tooltip-bottom"
-          data-tip={user?.displayName}
-        >
-          <img
-            src={user?.photoURL}
-            className="w-12 rounded-full ring-4 ring-sky-500"
-          />
-        </div>
-        <div>
-          {user ? (
-            <button className="btn bg-white" onClick={logOut}>
+        {user ? (
+          <>
+            <div
+              className="tooltip md:mr-4 tooltip-left lg:tooltip-bottom"
+              data-tip={user?.displayName}
+            >
+              <img
+                src={user?.photoURL}
+                className="w-10 lg:w-12 mr-2 lg:mr-0 rounded-full ring-4 ring-sky-500"
+              />
+            </div>
+            <button
+              className="btn bg-white hidden md:inline-block"
+              onClick={logOut}
+            >
               Logout
             </button>
-          ) : (
-            <Link to="/login" className="btn bg-white">
-              Login
-            </Link>
-          )}
-        </div>
+          </>
+        ) : (
+          <Link to="/login" className="btn bg-white">
+            Login
+          </Link>
+        )}
       </div>
     </div>
   );
