@@ -33,8 +33,7 @@ const Banner = () => {
         </Swiper>
         <div>
           <h1 className="lg:text-5xl text-2xl font-bold">
-            Welcome to Your{" "}
-            <span className="text-gray-500">Hospitality Haven</span>
+            Welcome to <span className="text-sky-600">Hospitality Haven</span>!
           </h1>
           <p className="lg:my-6 my-4">
             Discover the epitome of luxury living with our exclusive selection
