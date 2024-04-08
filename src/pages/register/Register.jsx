@@ -26,7 +26,7 @@ const Register = () => {
     }
   });
   return (
-    <div>
+    <div className="my-6">
       <h2 className="text-2xl font-semibold text-center mb-6">
         Please Register
       </h2>

@@ -25,7 +25,7 @@ const Login = () => {
     }
   });
   return (
-    <div className="w-fit mx-auto">
+    <div className="w-fit mx-auto my-6">
       <h2 className="text-2xl font-semibold text-center mb-6">Please Login</h2>
       <form className="grid gap-4" onSubmit={handleFormSubmit}>
         <label className="input input-bordered flex items-center gap-2">

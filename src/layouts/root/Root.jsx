@@ -5,7 +5,7 @@ const Root = () => {
     <div className="font-source">
       <div className="lg:mx-28 lg:mt-6">
         <Navbar></Navbar>
-        <div className="my-6 lg:my-10">
+        <div className="">
           <Outlet></Outlet>
         </div>
       </div>
