@@ -1,10 +1,10 @@
 import { useContext } from "react";
-import AuthContext from "../../contexts/auth/AuthContext";
+import EstatesContext from "../../contexts/estates/EstatesContext";
 import Banner from "./components/banner/Banner";
 
 const Home = () => {
-  const { isLoading } = useContext(AuthContext);
-  console.log(isLoading);
+  const data = useContext(EstatesContext);
+  console.log(data);
   return (
     <div>
       <Banner></Banner>

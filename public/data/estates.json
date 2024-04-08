@@ -1,0 +1,157 @@
+[
+  {
+    "id": 1,
+    "estate_title": "Luxury Beach Resort",
+    "segment_name": "Resorts",
+    "description": "Experience ultimate luxury and relaxation at our beachfront resort with stunning ocean views.",
+    "price": 500,
+    "status": "rent",
+    "area": 5000,
+    "location": {
+      "latitude": 3.2028,
+      "longitude": 73.2207
+    },
+    "facilities": ["infinity pool", "private beach", "spa", "restaurants"],
+    "image": "https://i.ibb.co/zNnhvyh/Luxury-Beach-Resort.png"
+  },
+  {
+    "id": 2,
+    "estate_title": "Cozy Mountain Lodge",
+    "segment_name": "Lodges",
+    "description": "Escape to the mountains and cozy up in our charming lodge surrounded by nature's beauty.",
+    "price": 250,
+    "status": "rent",
+    "area": 3000,
+    "location": {
+      "latitude": 39.5501,
+      "longitude": 105.7821
+    },
+    "facilities": ["fireplace", "hot tub", "hiking trails", "game room"],
+    "image": "https://i.ibb.co/cg56RgP/Cozy-Mountain-Lodge.png"
+  },
+  {
+    "id": 3,
+    "estate_title": "Charming Guesthouse in the Countryside",
+    "segment_name": "Guesthouses",
+    "description": "Discover quaint countryside living at our charming guesthouse with personalized service and homely atmosphere.",
+    "price": 150,
+    "status": "rent",
+    "area": 2000,
+    "location": {
+      "latitude": 51.5171,
+      "longitude": 0.1062
+    },
+    "facilities": ["garden", "homemade breakfast", "bicycle rental", "library"],
+    "image": "https://i.ibb.co/SNWbsGF/Charming-Guesthouse-in-the-Countryside.png"
+  },
+  {
+    "id": 4,
+    "estate_title": "Ski Chalet Vacation Rental",
+    "segment_name": "Vacation Rentals",
+    "description": "Enjoy a cozy winter getaway in our ski chalet rental, just steps away from the slopes.",
+    "price": 300,
+    "status": "rent",
+    "area": 1800,
+    "location": {
+      "latitude": 46.8182,
+      "longitude": 8.2275
+    },
+    "facilities": [
+      "ski-in/ski-out access",
+      "sauna",
+      "mountain views",
+      "fire pit"
+    ],
+    "image": "https://i.ibb.co/2cSxLLj/Ski-Chalet-Vacation-Rental.png"
+  },
+  {
+    "id": 5,
+    "estate_title": "Grand Hotel Downtown",
+    "segment_name": "Hotels",
+    "description": "Experience the epitome of luxury and elegance in the heart of the city at our grand hotel.",
+    "price": 700,
+    "status": "sale",
+    "area": 8000,
+    "location": {
+      "latitude": 40.7128,
+      "longitude": -74.006
+    },
+    "facilities": [
+      "ballroom",
+      "fine dining restaurant",
+      "spa",
+      "business center"
+    ],
+    "image": "https://i.ibb.co/hdM3V6g/Grand-Hotel-Downtown.png"
+  },
+  {
+    "id": 6,
+    "estate_title": "Riverside Motel",
+    "segment_name": "Motels",
+    "description": "Enjoy a comfortable stay by the river at our cozy motel, perfect for budget-conscious travelers.",
+    "price": 80,
+    "status": "rent",
+    "area": 1000,
+    "location": {
+      "latitude": 44.0582,
+      "longitude": -121.3153
+    },
+    "facilities": ["parking", "free Wi-Fi", "24-hour reception", "coffee shop"],
+    "image": "https://i.ibb.co/PZwRd3K/Riverside-Motel.png"
+  },
+  {
+    "id": 7,
+    "estate_title": "Seaside Vacation House",
+    "segment_name": "Vacation Rentals",
+    "description": "Relax and unwind in our charming seaside vacation house, just steps away from the beach.",
+    "price": 200,
+    "status": "rent",
+    "area": 1500,
+    "location": {
+      "latitude": 34.0522,
+      "longitude": -118.2437
+    },
+    "facilities": ["ocean views", "deck", "BBQ grill", "beach gear"],
+    "image": "https://i.ibb.co/BVFsTcy/Seaside-Vacation-House.png"
+  },
+  {
+    "id": 8,
+    "estate_title": "Mountain Retreat Resort",
+    "segment_name": "Resorts",
+    "description": "Escape to the mountains and indulge in luxury at our secluded resort surrounded by breathtaking views.",
+    "price": 600,
+    "status": "sale",
+    "area": 7000,
+    "location": {
+      "latitude": 37.7749,
+      "longitude": -122.4194
+    },
+    "facilities": [
+      "outdoor pool",
+      "spa",
+      "fitness center",
+      "fine dining restaurant"
+    ],
+    "image": "https://i.ibb.co/wBSf4yW/Mountain-Retreat-Resort.png"
+  },
+  {
+    "id": 9,
+    "estate_title": "Coastal Cottage",
+    "segment_name": "Vacation Rentals",
+    "description": "Experience coastal living at its best in our charming cottage overlooking the sea.",
+    "price": 150,
+    "status": "rent",
+    "area": 1200,
+    "location": {
+      "latitude": 26.1224,
+      "longitude": -80.1373
+    },
+    "facilities": [
+      "private beach access",
+      "deck",
+      "kitchenette",
+      "beach chairs"
+    ],
+    "image": "https://i.ibb.co/Jr9cnVf/Coastal-Cottage.png"
+  }
+]

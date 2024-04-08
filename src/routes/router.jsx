@@ -9,6 +9,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
+    loader: () => fetch("/data/estates.json"),
     errorElement: <Error></Error>,
     children: [
       {
