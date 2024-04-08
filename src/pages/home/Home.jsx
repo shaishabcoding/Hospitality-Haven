@@ -2,8 +2,8 @@ import { useContext } from "react";
 import AuthContext from "../../contexts/auth/AuthContext";
 
 const Home = () => {
-  const { name } = useContext(AuthContext);
-  console.log(name);
+  const { isLoading } = useContext(AuthContext);
+  console.log(isLoading);
   return (
     <div>
       <h2>This is home</h2>

@@ -1,17 +1,25 @@
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import AuthContext from "../../contexts/auth/AuthContext";
 
 const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext);
+
   const links = (
     <>
       <li>
         <NavLink to="/">Home</NavLink>
       </li>
-      <li>
-        <NavLink to="/profile/update">Update Profile</NavLink>
-      </li>
-      <li>
-        <NavLink to="/profile">Profile</NavLink>
-      </li>
+      {user && (
+        <>
+          <li>
+            <NavLink to="/profile/update">Update Profile</NavLink>
+          </li>
+          <li>
+            <NavLink to="/profile">Profile</NavLink>
+          </li>
+        </>
+      )}
     </>
   );
   return (
@@ -48,8 +56,27 @@ const Navbar = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
-      <div className="navbar-end">
-        <a className="btn">Button</a>
+      <div className="navbar-end flex items-center">
+        <div
+          className="tooltip mr-4 tooltip-bottom"
+          data-tip={user?.displayName}
+        >
+          <img
+            src={user?.photoURL}
+            className="w-12 rounded-full ring-4 ring-sky-500"
+          />
+        </div>
+        <div>
+          {user ? (
+            <button className="btn bg-white" onClick={logOut}>
+              Logout
+            </button>
+          ) : (
+            <Link to="/login" className="btn bg-white">
+              Login
+            </Link>
+          )}
+        </div>
       </div>
     </div>
   );
