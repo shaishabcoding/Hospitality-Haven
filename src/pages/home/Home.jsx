@@ -1,13 +1,11 @@
-import { useContext } from "react";
-import EstatesContext from "../../contexts/estates/EstatesContext";
 import Banner from "./components/banner/Banner";
+import Estates from "./components/estates/Estates";
 
 const Home = () => {
-  const data = useContext(EstatesContext);
-  console.log(data);
   return (
     <div>
       <Banner></Banner>
+      <Estates></Estates>
     </div>
   );
 };
