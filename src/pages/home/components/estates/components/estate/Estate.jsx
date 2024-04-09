@@ -1,10 +1,19 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
+import { Link } from "react-router-dom";
 const Estate = ({ estate }) => {
   const [isFav, setIsFav] = useState(false);
-  const { estate_title, segment_name, price, status, area, facilities, image } =
-    estate;
+  const {
+    id,
+    estate_title,
+    segment_name,
+    price,
+    status,
+    area,
+    facilities,
+    image,
+  } = estate;
   const handleFav = () => {
     setIsFav(!isFav);
   };
@@ -44,7 +53,9 @@ const Estate = ({ estate }) => {
           <li key={idx}>{facility}</li>
         ))}
       </ol>
-      <button className="btn btn-primary w-full">View Property</button>
+      <Link to={`/estate/${id}`} className="btn btn-primary w-full">
+        View Property
+      </Link>
     </div>
   );
 };
