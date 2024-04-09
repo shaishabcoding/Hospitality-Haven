@@ -37,7 +37,7 @@ const EstateDetails = () => {
           <div className="relative text-white overflow-hidden rounded-lg">
             <img
               src={image}
-              className="aspect-video object-cover saturate-50 group-hover:saturate-100 transition group-hover:scale-125"
+              className="aspect-video w-full object-cover group-hover:saturate-100 transition group-hover:scale-125"
             />
             <div className="absolute right-3 top-3">
               <span className="bg-sky-500 border border-sky-600 p-1 px-2 text-xs rounded-lg mr-2">
@@ -84,7 +84,7 @@ const EstateDetails = () => {
         </div>
         <div className="rounded-lg overflow-hidden flex-1">
           <MapContainer
-            className="w-full h-52 lg:h-full scale-125"
+            className="w-full h-52 lg:h-full scale-y-125 lg:scale-y-105 lg:translate-y-4 translate-y-8 rounded-lg"
             center={position}
             zoom={13}
             scrollWheelZoom={true}

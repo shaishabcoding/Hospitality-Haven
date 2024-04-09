@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import picture from "../../assets/icons/picture.svg";
 import AuthContext from "../../contexts/auth/AuthContext";
 import { useForm } from "react-hook-form";
@@ -8,6 +8,7 @@ import { toast } from "react-toastify";
 
 const Register = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const { createUser } = useContext(AuthContext);
   const [isShowPass, setIsShowPass] = useState(false);
   const [image, setImage] = useState("");
@@ -21,7 +22,7 @@ const Register = () => {
     } else {
       createUser({ email, password, image, name }, () => {
         toast.success("Account created successfully");
-        navigate("/");
+        navigate(location?.state ?? "/");
       });
     }
   });
@@ -120,7 +121,7 @@ const Register = () => {
       </form>
       <p className="w-fit mx-auto">
         Already have an account?{" "}
-        <Link className="btn btn-link p-0" to="/login">
+        <Link className="btn btn-link p-0" to="/login" state={location?.state}>
           Login
         </Link>
       </p>

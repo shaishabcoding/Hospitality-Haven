@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import AuthContext from "../../contexts/auth/AuthContext";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
@@ -8,6 +8,7 @@ import { FaGithub, FaGoogle } from "react-icons/fa";
 
 const Login = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const { logIn, googleSignUp, githubSignUp } = useContext(AuthContext);
   const [isShowPass, setIsShowPass] = useState(false);
   const { register, handleSubmit } = useForm();
@@ -20,7 +21,7 @@ const Login = () => {
     } else {
       logIn({ email, password }, () => {
         toast.success("Account Logged in successfully");
-        navigate("/");
+        navigate(location?.state ?? "/");
       });
     }
   });
@@ -86,7 +87,11 @@ const Login = () => {
       </form>
       <p className="text-center">
         Don&apos;t have an account?{" "}
-        <Link className="btn btn-link p-0" to="/register">
+        <Link
+          className="btn btn-link p-0"
+          to="/register"
+          state={location?.state}
+        >
           Register
         </Link>
       </p>
@@ -96,7 +101,7 @@ const Login = () => {
         onClick={() => {
           googleSignUp(() => {
             toast.success("Google Sign In successfully");
-            navigate("/");
+            navigate(location?.state ?? "/");
           });
         }}
       >
@@ -107,7 +112,7 @@ const Login = () => {
         onClick={() => {
           githubSignUp(() => {
             toast.success("Github Sign In successfully");
-            navigate("/");
+            navigate(location?.state ?? "/");
           });
         }}
       >
