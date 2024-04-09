@@ -1,16 +1,23 @@
 import { useContext, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import EstatesContext from "../../contexts/estates/EstatesContext";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
+import {
+  addLocalEstate,
+  hasLocalEstate,
+  removeLocalEstate,
+} from "../../utils/localEstate";
+import { toast } from "react-toastify";
 
 const EstateDetails = () => {
-  const [isFav, setIsFav] = useState(false);
-
-  const estates = useContext(EstatesContext);
   const { id } = useParams();
+  const [isFav, setIsFav] = useState(hasLocalEstate("fav", id));
+  const estates = useContext(EstatesContext);
+
   const handleFav = () => {
+    !isFav ? addLocalEstate("fav", id) : removeLocalEstate("fav", id);
     setIsFav(!isFav);
   };
 
@@ -57,13 +64,14 @@ const EstateDetails = () => {
               </button>
             </div>
           </div>
-          <h2 className="font-bold text-xl mt-3">{estate_title}</h2>
+          <h2 className="font-bold text-xl lg:text-2xl mt-3">{estate_title}</h2>
           <p className="mt-1">{description}</p>
           <p className="mt-1">
-            <b className="font-bold">Area</b>: {area} sq ft
+            <b className="font-bold">Price</b>: ${price} |{" "}
+            <b className="font-bold">Area</b>: ${area} sq ft
           </p>
           <p className="mt-1">
-            <b className="font-bold">Price</b>: ${price}
+            <b className="font-bold">Segment</b>: {segment_name}
           </p>
           <div className="divider mb-0 mt-2"></div>
           <h4 className="text-lg font-semibold">Facilities</h4>
@@ -73,13 +81,25 @@ const EstateDetails = () => {
             ))}
           </ol>
           {status === "rent" ? (
-            <Link to={`/estate/${id}`} className="btn btn-primary w-full">
+            <button
+              onClick={() => {
+                addLocalEstate("booked", id);
+                toast.success("Booking Successfully");
+              }}
+              className="btn btn-primary w-full"
+            >
               Book
-            </Link>
+            </button>
           ) : (
-            <Link to={`/estate/${id}`} className="btn btn-primary w-full">
+            <button
+              onClick={() => {
+                addLocalEstate("buy", id);
+                toast.success("Buy Successfully");
+              }}
+              className="btn btn-primary w-full"
+            >
               Buy
-            </Link>
+            </button>
           )}
         </div>
         <div className="rounded-lg overflow-hidden flex-1">

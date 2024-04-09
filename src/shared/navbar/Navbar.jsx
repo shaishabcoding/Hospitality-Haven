@@ -13,6 +13,9 @@ const Navbar = () => {
       {user && (
         <>
           <li>
+            <NavLink to="/estates">Listed Estate</NavLink>
+          </li>
+          <li>
             <NavLink to="/profile/update">Update Profile</NavLink>
           </li>
           <li>

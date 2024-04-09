@@ -2,8 +2,12 @@ import PropTypes from "prop-types";
 import { useState } from "react";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import {
+  addLocalEstate,
+  hasLocalEstate,
+  removeLocalEstate,
+} from "../../../../../../utils/localEstate";
 const Estate = ({ estate }) => {
-  const [isFav, setIsFav] = useState(false);
   const {
     id,
     estate_title,
@@ -14,7 +18,9 @@ const Estate = ({ estate }) => {
     facilities,
     image,
   } = estate;
+  const [isFav, setIsFav] = useState(hasLocalEstate("fav", id));
   const handleFav = () => {
+    !isFav ? addLocalEstate("fav", id) : removeLocalEstate("fav", id);
     setIsFav(!isFav);
   };
   return (
