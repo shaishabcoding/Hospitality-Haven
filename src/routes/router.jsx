@@ -7,6 +7,7 @@ import Login from "../pages/login/Login";
 import EstateDetails from "../pages/estate-details/EstateDetails";
 import PrivateRoute from "./PrivateRoute";
 import ListedEstate from "../pages/listed-estate/ListedEstate";
+import Update from "../pages/profile/update/Update";
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,14 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login></Login>,
+      },
+      {
+        path: "/profile/update",
+        element: (
+          <PrivateRoute>
+            <Update></Update>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/estate/:id",

@@ -3,13 +3,14 @@ import { useParams } from "react-router-dom";
 import EstatesContext from "../../contexts/estates/EstatesContext";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import { FaHeart, FaRegHeart } from "react-icons/fa";
+import { FaCartArrowDown, FaHeart, FaRegHeart } from "react-icons/fa";
 import {
   addLocalEstate,
   hasLocalEstate,
   removeLocalEstate,
 } from "../../utils/localEstate";
 import { toast } from "react-toastify";
+import { FaCartShopping } from "react-icons/fa6";
 
 const EstateDetails = () => {
   const { id } = useParams();
@@ -88,7 +89,7 @@ const EstateDetails = () => {
               }}
               className="btn btn-primary w-full"
             >
-              Book
+              Book <FaCartShopping />
             </button>
           ) : (
             <button
@@ -98,7 +99,7 @@ const EstateDetails = () => {
               }}
               className="btn btn-primary w-full"
             >
-              Buy
+              Buy <FaCartArrowDown />
             </button>
           )}
         </div>

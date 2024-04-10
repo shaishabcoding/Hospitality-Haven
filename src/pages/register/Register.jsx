@@ -5,6 +5,7 @@ import picture from "../../assets/icons/picture.svg";
 import AuthContext from "../../contexts/auth/AuthContext";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
+import { BiUserPlus } from "react-icons/bi";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -116,7 +117,7 @@ const Register = () => {
           </button>
         </div>
         <button type="submit" className="btn btn-primary ">
-          Register
+          Register <BiUserPlus />
         </button>
       </form>
       <p className="w-fit mx-auto">

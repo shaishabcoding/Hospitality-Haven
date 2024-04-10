@@ -1,8 +1,11 @@
 import { useState } from "react";
 import Estate from "./components/estate/Estate";
+import { RiDeleteBin6Line } from "react-icons/ri";
+import { useNavigate } from "react-router-dom";
 // import BookList from "../../components/selectedBooks/BookList";
 
 const ListedEstate = () => {
+  const navigate = useNavigate();
   const [sort, setSort] = useState("");
   const [checkedTab, setCheckedTab] = useState("fav");
   const handleTabChange = (event) => {
@@ -15,16 +18,25 @@ const ListedEstate = () => {
           Listed Estates
         </h2>
       </header>
-      <div className="flex items-center justify-center">
+      <div className="flex items-center justify-center gap-4">
         <select
           onChange={(e) => setSort(e.target.value)}
-          className="bg-green-400 p-4 rounded-lg  outline-none text-white"
+          className="select bg-pink-400 rounded-lg  outline-none text-white"
         >
           <option hidden>Sort</option>
           <option value="area">Area</option>
           <option value="price">Price</option>
           <option value="estate_title">Name</option>
         </select>
+        <button
+          className="btn btn-error text-white"
+          onClick={() => {
+            localStorage.clear();
+            navigate(0);
+          }}
+        >
+          Clear <RiDeleteBin6Line />
+        </button>
       </div>
       <div role="tablist" className="tabs tabs-lifted mt-4 lg:mt-12">
         <input
@@ -40,7 +52,7 @@ const ListedEstate = () => {
         />
         <div
           role="tabpanel"
-          className="tab-content bg-base-100 border-base-300 rounded-box p-6"
+          className="tab-content bg-base-100 border-base-300 rounded-box p-4 lg:p-6"
         >
           <Estate mode="fav" sort={sort} />
         </div>

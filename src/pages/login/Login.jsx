@@ -5,6 +5,7 @@ import AuthContext from "../../contexts/auth/AuthContext";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import { FaGithub, FaGoogle } from "react-icons/fa";
+import { FiLogIn } from "react-icons/fi";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -82,7 +83,7 @@ const Login = () => {
           </button>
         </div>
         <button type="submit" className="btn btn-primary ">
-          Login
+          Login <FiLogIn />
         </button>
       </form>
       <p className="text-center">

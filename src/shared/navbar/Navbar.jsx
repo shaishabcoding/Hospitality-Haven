@@ -1,6 +1,8 @@
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import AuthContext from "../../contexts/auth/AuthContext";
+import { HiOutlineLogout } from "react-icons/hi";
+import { FiLogIn } from "react-icons/fi";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -13,20 +15,17 @@ const Navbar = () => {
       {user && (
         <>
           <li>
-            <NavLink to="/estates">Listed Estate</NavLink>
+            <NavLink to="/estates">Listed Estates</NavLink>
           </li>
           <li>
             <NavLink to="/profile/update">Update Profile</NavLink>
-          </li>
-          <li>
-            <NavLink to="/profile">Profile</NavLink>
           </li>
           <li className="md:hidden">
             <button
               className="btn btn-xs text-xs p-0 bg-white"
               onClick={logOut}
             >
-              Logout
+              Logout <HiOutlineLogout />
             </button>
           </li>
         </>
@@ -80,15 +79,15 @@ const Navbar = () => {
               />
             </div>
             <button
-              className="btn bg-white hidden md:inline-block"
+              className="btn bg-white hidden md:inline-block lg:flex items-center justify-center"
               onClick={logOut}
             >
-              Logout
+              Logout <HiOutlineLogout />
             </button>
           </>
         ) : (
           <Link to="/login" className="btn bg-white">
-            Login
+            Login <FiLogIn />
           </Link>
         )}
       </div>

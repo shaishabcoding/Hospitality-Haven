@@ -7,6 +7,7 @@ import {
   hasLocalEstate,
   removeLocalEstate,
 } from "../../../../../../utils/localEstate";
+import { RxExternalLink } from "react-icons/rx";
 const Estate = ({ estate }) => {
   const {
     id,
@@ -60,7 +61,7 @@ const Estate = ({ estate }) => {
         ))}
       </ol>
       <Link to={`/estate/${id}`} className="btn btn-primary w-full">
-        View Property
+        View Property <RxExternalLink />
       </Link>
     </div>
   );

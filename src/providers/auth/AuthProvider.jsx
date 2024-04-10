@@ -42,6 +42,12 @@ const AuthProvider = ({ children }) => {
     auth.signOut();
   };
 
+  const update = ({ name, image }) =>
+    updateProfile(user, {
+      displayName: name,
+      photoURL: image,
+    });
+
   const signUp = (provider, callback = null) => {
     signInWithPopup(auth, provider)
       .then(({ user }) => {
@@ -73,6 +79,7 @@ const AuthProvider = ({ children }) => {
     signUp,
     googleSignUp,
     githubSignUp,
+    update,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
