@@ -60,11 +60,13 @@ const Navbar = () => {
           </ul>
         </div>
         <Link to="/" className="btn btn-ghost md:text-xl">
-          Hospitality Haven
+          <span data-aos="zoom-in-down">Hospitality Haven</span>
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">{links}</ul>
+        <ul data-aos="zoom-in-left" className="menu menu-horizontal px-1">
+          {links}
+        </ul>
       </div>
       <div className="navbar-end flex items-center">
         {user ? (
@@ -74,6 +76,7 @@ const Navbar = () => {
               data-tip={user?.displayName}
             >
               <img
+                data-aos="zoom-in-right"
                 src={user?.photoURL}
                 className="w-10 lg:w-12 mr-2 lg:mr-0 rounded-full ring-4 ring-sky-500"
               />
@@ -81,14 +84,17 @@ const Navbar = () => {
             <button
               className="btn bg-white hidden md:flex items-center justify-center"
               onClick={logOut}
+              data-aos="zoom-out-up"
             >
               Logout <HiOutlineLogout />
             </button>
           </>
         ) : (
-          <Link to="/login" className="btn bg-white">
-            Login <FiLogIn />
-          </Link>
+          <div data-aos="zoom-in-right">
+            <Link to="/login" className="btn bg-white">
+              Login <FiLogIn />
+            </Link>
+          </div>
         )}
       </div>
     </div>

@@ -25,7 +25,10 @@ const Estate = ({ estate }) => {
     setIsFav(!isFav);
   };
   return (
-    <div className="bg-gray-50/40 rounded-lg p-4 border border-gray-200 group flex flex-col">
+    <div
+      data-aos="zoom-in-up"
+      className="bg-gray-50/40 rounded-lg p-4 border border-gray-200 group flex flex-col"
+    >
       <div className="relative text-white overflow-hidden rounded-lg">
         <img
           src={image}
@@ -49,20 +52,26 @@ const Estate = ({ estate }) => {
           </button>
         </div>
       </div>
-      <h2 className="font-bold text-xl mt-3">{estate_title}</h2>
-      <p className="mt-1">
+      <h2 data-aos="zoom-in" className="font-bold text-xl mt-3">
+        {estate_title}
+      </h2>
+      <p data-aos="zoom-in" className="mt-1">
         <b className="font-bold">Area</b>: {area} sq ft
       </p>
-      <div className="divider mb-0 mt-2"></div>
-      <h4 className="text-lg font-semibold">Facilities</h4>
-      <ol className="list-disc ml-8 flex-grow mb-4">
+      <div data-aos="flip-right" className="divider mb-0 mt-2"></div>
+      <h4 data-aos="zoom-in" className="text-lg font-semibold">
+        Facilities
+      </h4>
+      <ol data-aos="zoom-in" className="list-disc ml-8 flex-grow mb-4">
         {facilities.map((facility, idx) => (
           <li key={idx}>{facility}</li>
         ))}
       </ol>
-      <Link to={`/estate/${id}`} className="btn btn-primary w-full">
-        View Property <RxExternalLink />
-      </Link>
+      <div data-aos="flip-left" data-aos-duration="800">
+        <Link to={`/estate/${id}`} className="btn btn-primary w-full">
+          View Property <RxExternalLink />
+        </Link>
+      </div>
     </div>
   );
 };

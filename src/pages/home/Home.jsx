@@ -4,7 +4,7 @@ import Estates from "./components/estates/Estates";
 
 const Home = () => {
   return (
-    <div>
+    <div className="overflow-x-hidden">
       <Helmet>
         <title>Hospitality Haven | Home</title>
       </Helmet>

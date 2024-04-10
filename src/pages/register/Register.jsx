@@ -33,11 +33,18 @@ const Register = () => {
       <Helmet>
         <title>Hospitality Haven | Register</title>
       </Helmet>
-      <h2 className="text-2xl font-semibold text-center mb-6">
+      <h2
+        data-aos="zoom-in"
+        className="text-2xl font-semibold text-center mb-6"
+      >
         Please Register
       </h2>
       <form className="grid w-fit mx-auto gap-4" onSubmit={handleFormSubmit}>
-        <label className="input input-bordered flex items-center gap-2">
+        <label
+          data-aos="zoom-in"
+          data-aos-delay="300"
+          className="input input-bordered flex items-center gap-2"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 16 16"
@@ -54,7 +61,11 @@ const Register = () => {
             {...register("name")}
           />
         </label>
-        <label className="input input-bordered flex items-center gap-2">
+        <label
+          data-aos="zoom-in"
+          data-aos-delay="600"
+          className="input input-bordered flex items-center gap-2"
+        >
           <img src={image ? image : picture} className="w-[1em]" />
           <input
             type="url"
@@ -68,7 +79,11 @@ const Register = () => {
             })}
           />
         </label>
-        <label className="input input-bordered flex items-center gap-2">
+        <label
+          data-aos="zoom-in"
+          data-aos-delay="900"
+          className="input input-bordered flex items-center gap-2"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 16 16"
@@ -86,7 +101,7 @@ const Register = () => {
             {...register("email")}
           />
         </label>
-        <div className="join">
+        <div data-aos="zoom-in" data-aos-delay="1200" className="join">
           <label className="input input-bordered flex items-center gap-2 join-item">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -120,11 +135,18 @@ const Register = () => {
             {isShowPass ? <AiFillEyeInvisible /> : <AiFillEye />}
           </button>
         </div>
-        <button type="submit" className="btn btn-primary ">
-          Register <BiUserPlus />
-        </button>
+        <div data-aos="flip-left" data-aos-delay="1500">
+          <button type="submit" className="btn w-full btn-primary ">
+            Register <BiUserPlus />
+          </button>
+        </div>
       </form>
-      <p className="w-fit mx-auto">
+      <p
+        data-aos="flip-left"
+        data-aos-duration="800"
+        data-aos-delay="1800"
+        className="w-fit mx-auto"
+      >
         Already have an account?{" "}
         <Link className="btn btn-link p-0" to="/login" state={location?.state}>
           Login

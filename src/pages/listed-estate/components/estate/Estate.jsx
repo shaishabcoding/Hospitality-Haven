@@ -37,6 +37,7 @@ const Estate = ({ mode, sort }) => {
 
         return (
           <div
+            data-aos={`fade-${idx % 2 ? "up" : "down"}`}
             key={idx}
             className={`border border-gray-300 rounded-lg overflow-hidden flex flex-col ${
               idx % 2 ? "md:flex-row-reverse" : "md:flex-row"
@@ -51,17 +52,20 @@ const Estate = ({ mode, sort }) => {
                 idx % 2 && "md:ml-4"
               }`}
             >
-              <h2 className="text-xl md:text-2xl font-bold mt-3">
+              <h2
+                data-aos="zoom-in"
+                className="text-xl md:text-2xl font-bold mt-3"
+              >
                 {estate_title}
               </h2>
-              <p className="mt-1">
+              <p data-aos="zoom-in" className="mt-1">
                 <b className="font-bold">Price</b>: ${price} |{" "}
                 <b className="font-bold">Area</b>: ${area} sq ft
               </p>
-              <p className="mt-1">
+              <p data-aos="zoom-in" className="mt-1">
                 <b className="font-bold">Segment</b>: {segment_name}
               </p>
-              <div className="mt-1 flex-grow">
+              <div data-aos="zoom-in" className="mt-1 flex-grow">
                 <h4 className="text-md font-semibold">Facilities</h4>
                 <ol className="list-disc ml-8 flex-grow mb-4">
                   {facilities.map((facility, idx) => (
@@ -71,17 +75,25 @@ const Estate = ({ mode, sort }) => {
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2">
                 <Link
+                  data-aos="flip-left"
+                  data-aos-duration="600"
                   to={`/estate/${id}`}
                   className="btn btn-info text-white mb-4 md:mr-4 btn-primary"
                 >
                   View Property <TbListDetails />
                 </Link>
-                <button
-                  onClick={handleEstateRemove(id)}
-                  className="btn btn-error text-white mb-4 md:mr-4 btn-primary"
+                <div
+                  data-aos="flip-left"
+                  data-aos-duration="600"
+                  className="mb-4 md:mr-4"
                 >
-                  Remove <RiDeleteBin6Line />
-                </button>
+                  <button
+                    onClick={handleEstateRemove(id)}
+                    className="btn btn-error w-full text-white  btn-primary"
+                  >
+                    Remove <RiDeleteBin6Line />
+                  </button>
+                </div>
               </div>
             </div>
           </div>

@@ -17,12 +17,18 @@ const ListedEstate = () => {
         <title>Listed Estates</title>
       </Helmet>
       <header>
-        <h2 className="lg:text-5xl text-3xl font-bold text-center mb-4 lg:mb-6 font-playfair rounded-lg p-6 lg:p-8">
+        <h2
+          data-aos="zoom-out-up"
+          data-aos-duration="400"
+          className="lg:text-5xl text-3xl font-bold text-center mb-4 lg:mb-6 font-playfair rounded-lg p-6 lg:p-8"
+        >
           Listed Estates
         </h2>
       </header>
       <div className="flex items-center justify-center gap-4">
         <select
+          data-aos="zoom-in-left"
+          data-aos-delay="400"
           onChange={(e) => setSort(e.target.value)}
           className="select bg-pink-400 rounded-lg  outline-none text-white"
         >
@@ -31,15 +37,17 @@ const ListedEstate = () => {
           <option value="price">Price</option>
           <option value="estate_title">Name</option>
         </select>
-        <button
-          className="btn btn-error text-white"
-          onClick={() => {
-            localStorage.clear();
-            navigate(0);
-          }}
-        >
-          Clear <RiDeleteBin6Line />
-        </button>
+        <div data-aos="zoom-in-right" data-aos-delay="400">
+          <button
+            className="btn btn-error text-white"
+            onClick={() => {
+              localStorage.clear();
+              navigate(0);
+            }}
+          >
+            Clear <RiDeleteBin6Line />
+          </button>
+        </div>
       </div>
       <div role="tablist" className="tabs tabs-lifted mt-4 lg:mt-12">
         <input

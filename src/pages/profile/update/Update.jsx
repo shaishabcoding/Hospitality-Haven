@@ -34,11 +34,19 @@ const Update = () => {
       <Helmet>
         <title>Hospitality Haven | Update Profile</title>
       </Helmet>
-      <h2 className="text-2xl font-semibold text-center mb-6">
+      <h2
+        data-aos="zoom-in"
+        data-aos-delay="400"
+        className="text-2xl font-semibold text-center mb-6"
+      >
         Update Profile
       </h2>
       <form className="grid w-fit mx-auto gap-4" onSubmit={handleFormSubmit}>
-        <label className="input input-bordered flex items-center gap-2">
+        <label
+          data-aos="zoom-in"
+          data-aos-delay="800"
+          className="input input-bordered flex items-center gap-2"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 16 16"
@@ -55,7 +63,11 @@ const Update = () => {
             {...register("name")}
           />
         </label>
-        <label className="input input-bordered flex items-center gap-2">
+        <label
+          data-aos="zoom-in"
+          data-aos-delay="1200"
+          className="input input-bordered flex items-center gap-2"
+        >
           <img src={image ? image : picture} className="w-[1em]" />
           <input
             type="url"
@@ -69,7 +81,11 @@ const Update = () => {
             })}
           />
         </label>
-        <label className="input input-bordered flex items-center gap-2 bg-gray-50">
+        <label
+          data-aos="zoom-in"
+          data-aos-delay="1600"
+          className="input input-bordered flex items-center gap-2 bg-gray-50"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 16 16"
@@ -87,9 +103,11 @@ const Update = () => {
             disabled
           />
         </label>
-        <button type="submit" className="btn btn-primary ">
-          Update <FaUserEdit />
-        </button>
+        <div data-aos="flip-left" data-aos-delay="2000">
+          <button type="submit" className="btn w-full btn-primary ">
+            Update <FaUserEdit />
+          </button>
+        </div>
       </form>
     </div>
   );

@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <div className="bg-gray-200 lg:px-20">
       <footer className="footer p-10 text-base-content">
-        <nav>
+        <nav data-aos="flip-down">
           <h6 className="footer-title">Quick Links</h6>
           <Link to="/" className="link link-hover">
             Home
@@ -12,7 +12,7 @@ const Footer = () => {
           <Link className="link link-hover">About Us</Link>
           <Link className="link link-hover">Properties</Link>
         </nav>
-        <nav>
+        <nav data-aos="flip-up" data-aos-delay="200">
           <h6 className="footer-title">Contact Us</h6>
           <p>Email: info@hospitality-haven.web.app</p>
           <p>Phone: +1 (123) 456-7890</p>
