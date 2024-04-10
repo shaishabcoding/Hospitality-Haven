@@ -3,7 +3,12 @@ import { useParams } from "react-router-dom";
 import EstatesContext from "../../contexts/estates/EstatesContext";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import { FaCartArrowDown, FaHeart, FaRegHeart } from "react-icons/fa";
+import {
+  FaCartArrowDown,
+  FaHeart,
+  FaMapMarkerAlt,
+  FaRegHeart,
+} from "react-icons/fa";
 import {
   addLocalEstate,
   hasLocalEstate,
@@ -12,6 +17,8 @@ import {
 import { toast } from "react-toastify";
 import { FaCartShopping } from "react-icons/fa6";
 import { Helmet } from "react-helmet-async";
+import { divIcon } from "leaflet";
+import { renderToStaticMarkup } from "react-dom/server";
 
 const EstateDetails = () => {
   const { id } = useParams();
@@ -145,7 +152,16 @@ const EstateDetails = () => {
               attribution=""
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
-            <Marker position={position}>
+            <Marker
+              icon={divIcon({
+                html: renderToStaticMarkup(
+                  <div className="-translate-x-2 -translate-y-4">
+                    <FaMapMarkerAlt className="text-2xl" />
+                  </div>
+                ),
+              })}
+              position={position}
+            >
               <Popup>{estate_title}</Popup>
             </Marker>
           </MapContainer>
