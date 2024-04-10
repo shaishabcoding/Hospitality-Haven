@@ -1,9 +1,13 @@
 import { Link } from "react-router-dom";
 import { BsArrowReturnRight } from "react-icons/bs";
+import { Helmet } from "react-helmet-async";
 
 const Error = () => {
   return (
     <div className="h-screen w-screen flex flex-col lg:flex-row bg-gray-100 items-center justify-center p-10">
+      <Helmet>
+        <title>Page Not Found</title>
+      </Helmet>
       <div className="flex-1">
         <img src="https://i.ibb.co/Lpg4T3s/error.png" alt="404 img" />
       </div>

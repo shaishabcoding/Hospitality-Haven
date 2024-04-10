@@ -6,6 +6,7 @@ import AuthContext from "../../contexts/auth/AuthContext";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import { BiUserPlus } from "react-icons/bi";
+import { Helmet } from "react-helmet-async";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -29,6 +30,9 @@ const Register = () => {
   });
   return (
     <div className="my-6">
+      <Helmet>
+        <title>Hospitality Haven | Register</title>
+      </Helmet>
       <h2 className="text-2xl font-semibold text-center mb-6">
         Please Register
       </h2>

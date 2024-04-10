@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { FiLogIn } from "react-icons/fi";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -28,6 +29,9 @@ const Login = () => {
   });
   return (
     <div className="w-fit mx-auto my-6">
+      <Helmet>
+        <title>Hospitality Haven | Login</title>
+      </Helmet>
       <h2 className="text-2xl font-semibold text-center mb-6">Please Login</h2>
       <form className="grid gap-4" onSubmit={handleFormSubmit}>
         <label className="input input-bordered flex items-center gap-2">

@@ -11,6 +11,7 @@ import {
 } from "../../utils/localEstate";
 import { toast } from "react-toastify";
 import { FaCartShopping } from "react-icons/fa6";
+import { Helmet } from "react-helmet-async";
 
 const EstateDetails = () => {
   const { id } = useParams();
@@ -37,6 +38,9 @@ const EstateDetails = () => {
   const position = [location.latitude, location.longitude];
   return (
     <div className="mx-4 lg:mx-0 mb-4 lg:mb-10">
+      <Helmet>
+        <title>Estate Details</title>
+      </Helmet>
       <h2 className="text-2xl lg:text-5xl font-bold text-center my-8 lg:my-16">
         Estate Details
       </h2>

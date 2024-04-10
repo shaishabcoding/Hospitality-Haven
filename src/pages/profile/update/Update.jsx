@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import picture from "../../../assets/icons/picture.svg";
 import { toast } from "react-toastify";
 import { FaUserEdit } from "react-icons/fa";
+import { Helmet } from "react-helmet-async";
 
 const Update = () => {
   const navigate = useNavigate();
@@ -30,6 +31,9 @@ const Update = () => {
   });
   return (
     <div className="my-6">
+      <Helmet>
+        <title>Hospitality Haven | Update Profile</title>
+      </Helmet>
       <h2 className="text-2xl font-semibold text-center mb-6">
         Update Profile
       </h2>

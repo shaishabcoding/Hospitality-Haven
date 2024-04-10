@@ -2,7 +2,7 @@ import { useState } from "react";
 import Estate from "./components/estate/Estate";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { useNavigate } from "react-router-dom";
-// import BookList from "../../components/selectedBooks/BookList";
+import { Helmet } from "react-helmet-async";
 
 const ListedEstate = () => {
   const navigate = useNavigate();
@@ -13,6 +13,9 @@ const ListedEstate = () => {
   };
   return (
     <div className="lg:mt-6 mt-4 mx-3 lg:mx-0 lg:mb-16 mb-4">
+      <Helmet>
+        <title>Listed Estates</title>
+      </Helmet>
       <header>
         <h2 className="lg:text-5xl text-3xl font-bold text-center mb-4 lg:mb-6 font-playfair rounded-lg p-6 lg:p-8">
           Listed Estates

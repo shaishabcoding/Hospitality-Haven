@@ -38,13 +38,19 @@ const Estate = ({ mode, sort }) => {
         return (
           <div
             key={idx}
-            className="border border-gray-300 rounded-lg overflow-hidden flex flex-col lg:flex-row lg:gap-6"
+            className={`border border-gray-300 rounded-lg overflow-hidden flex flex-col ${
+              idx % 2 ? "lg:flex-row-reverse" : "lg:flex-row"
+            } lg:gap-6`}
           >
             <img
               src={image}
               className="lg:w-1/2 w-full aspect-video lg:object-cover"
             />
-            <div className="flex-1 flex flex-col  px-4 lg:px-0">
+            <div
+              className={`flex-1 flex flex-col  px-4 lg:px-0 ${
+                idx % 2 && "lg:ml-4"
+              }`}
+            >
               <h2 className="text-xl lg:text-2xl font-bold mt-3">
                 {estate_title}
               </h2>
