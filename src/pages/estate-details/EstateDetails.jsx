@@ -45,11 +45,11 @@ const EstateDetails = () => {
         Estate Details
       </h2>
       <div className="flex flex-col-reverse lg:flex-row gap-4">
-        <div className="bg-gray-50/40 rounded-lg p-4 border border-gray-200 group flex flex-col flex-1">
-          <div className="relative text-white overflow-hidden rounded-lg">
+        <div className="bg-gray-50/40 rounded-lg p-4 border border-gray-200 group flex flex-col lg:flex-col md:flex-row flex-1 md:gap-4 lg:gap-0">
+          <div className="relative text-white overflow-hidden rounded-lg flex-1">
             <img
               src={image}
-              className="aspect-video w-full object-cover group-hover:saturate-100 transition group-hover:scale-125"
+              className="aspect-video w-full object-cover group-hover:saturate-100 transition group-hover:scale-125 md:h-full"
             />
             <div className="absolute right-3 top-3">
               <span className="bg-sky-500 border border-sky-600 p-1 px-2 text-xs rounded-lg mr-2">
@@ -69,47 +69,51 @@ const EstateDetails = () => {
               </button>
             </div>
           </div>
-          <h2 className="font-bold text-xl lg:text-2xl mt-3">{estate_title}</h2>
-          <p className="mt-1">{description}</p>
-          <p className="mt-1">
-            <b className="font-bold">Price</b>: ${price} |{" "}
-            <b className="font-bold">Area</b>: ${area} sq ft
-          </p>
-          <p className="mt-1">
-            <b className="font-bold">Segment</b>: {segment_name}
-          </p>
-          <div className="divider mb-0 mt-2"></div>
-          <h4 className="text-lg font-semibold">Facilities</h4>
-          <ol className="list-disc ml-8 flex-grow mb-4">
-            {facilities.map((facility, idx) => (
-              <li key={idx}>{facility}</li>
-            ))}
-          </ol>
-          {status === "rent" ? (
-            <button
-              onClick={() => {
-                addLocalEstate("booked", id);
-                toast.success("Booking Successfully");
-              }}
-              className="btn btn-primary w-full"
-            >
-              Book <FaCartShopping />
-            </button>
-          ) : (
-            <button
-              onClick={() => {
-                addLocalEstate("buy", id);
-                toast.success("Buy Successfully");
-              }}
-              className="btn btn-primary w-full"
-            >
-              Buy <FaCartArrowDown />
-            </button>
-          )}
+          <div className="flex-1">
+            <h2 className="font-bold text-xl lg:text-2xl mt-3">
+              {estate_title}
+            </h2>
+            <p className="mt-1">{description}</p>
+            <p className="mt-1">
+              <b className="font-bold">Price</b>: ${price} |{" "}
+              <b className="font-bold">Area</b>: ${area} sq ft
+            </p>
+            <p className="mt-1">
+              <b className="font-bold">Segment</b>: {segment_name}
+            </p>
+            <div className="divider mb-0 mt-2"></div>
+            <h4 className="text-lg font-semibold">Facilities</h4>
+            <ol className="list-disc ml-8 flex-grow mb-4">
+              {facilities.map((facility, idx) => (
+                <li key={idx}>{facility}</li>
+              ))}
+            </ol>
+            {status === "rent" ? (
+              <button
+                onClick={() => {
+                  addLocalEstate("booked", id);
+                  toast.success("Booking Successfully");
+                }}
+                className="btn btn-primary w-full"
+              >
+                Book <FaCartShopping />
+              </button>
+            ) : (
+              <button
+                onClick={() => {
+                  addLocalEstate("buy", id);
+                  toast.success("Buy Successfully");
+                }}
+                className="btn btn-primary w-full"
+              >
+                Buy <FaCartArrowDown />
+              </button>
+            )}
+          </div>
         </div>
         <div className="rounded-lg overflow-hidden flex-1">
           <MapContainer
-            className="w-full h-52 lg:h-full scale-y-125 lg:scale-y-105 lg:translate-y-4 translate-y-8 rounded-lg"
+            className="w-full h-52 md:h-96 lg:h-full scale-y-125 md:scale-y-105 md:translate-y-4 translate-y-8 rounded-lg"
             center={position}
             zoom={13}
             scrollWheelZoom={true}

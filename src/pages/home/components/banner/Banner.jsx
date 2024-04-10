@@ -5,6 +5,7 @@ import "swiper/css/effect-cards";
 
 import { Autoplay, EffectCards } from "swiper/modules";
 import getRandomColor from "../../../../utils/getRandomColor";
+import { FaLocationArrow } from "react-icons/fa";
 
 const Banner = () => {
   const images = [
@@ -19,7 +20,7 @@ const Banner = () => {
     "https://i.ibb.co/Jr9cnVf/Coastal-Cottage.png",
   ];
   return (
-    <div className="hero min-h-screen bg-base-200 lg:rounded-lg lg:my-10">
+    <div className="hero min-h-screen bg-base-200 lg:rounded-lg lg:my-10 md:py-10">
       <div className="hero-content flex-col lg:flex-row-reverse lg:p-28 gap-4 lg:gap-24 overflow-hidden">
         <Swiper
           autoplay={{
@@ -29,7 +30,7 @@ const Banner = () => {
           effect={"cards"}
           grabCursor={true}
           modules={[Autoplay, EffectCards]}
-          className="w-[220px] lg:w-[300px] drop-shadow-md"
+          className="w-[220px] md:w-[500px] lg:w-[300px] drop-shadow-md"
         >
           {images.map((image, idx) => (
             <SwiperSlide
@@ -39,12 +40,12 @@ const Banner = () => {
             >
               <img
                 src={image}
-                className="w-full aspect-square rounded-lg drop-shadow-md"
+                className="w-full aspect-square md:aspect-video lg:aspect-square rounded-lg drop-shadow-md"
               />
             </SwiperSlide>
           ))}
         </Swiper>
-        <div>
+        <div className="md:px-10">
           <h1 className="lg:text-5xl mt-4 lg:mt-0 text-2xl font-bold">
             Welcome to <span className="text-sky-600">Hospitality Haven</span>!
           </h1>
@@ -55,7 +56,9 @@ const Banner = () => {
             unparalleled comfort. Begin your journey to relaxation and
             rejuvenation today.
           </p>
-          <button className="btn btn-primary">Get Started</button>
+          <button className="btn btn-primary">
+            Get Started <FaLocationArrow />
+          </button>
         </div>
       </div>
     </div>

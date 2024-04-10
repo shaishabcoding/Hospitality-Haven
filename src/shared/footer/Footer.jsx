@@ -14,7 +14,7 @@ const Footer = () => {
         </nav>
         <nav>
           <h6 className="footer-title">Contact Us</h6>
-          <p>Email: info@hospitality-haven.surge.sh</p>
+          <p>Email: info@hospitality-haven.web.app</p>
           <p>Phone: +1 (123) 456-7890</p>
           <p>Address: Noakhali, Bangladesh.</p>
         </nav>

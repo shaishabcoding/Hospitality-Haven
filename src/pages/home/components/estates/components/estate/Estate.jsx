@@ -29,7 +29,7 @@ const Estate = ({ estate }) => {
       <div className="relative text-white overflow-hidden rounded-lg">
         <img
           src={image}
-          className="aspect-video object-cover saturate-50 group-hover:saturate-100 transition group-hover:scale-125"
+          className="aspect-video w-full object-cover saturate-50 group-hover:saturate-100 transition group-hover:scale-125"
         />
         <div className="absolute right-3 top-3">
           <span className="bg-sky-500 border border-sky-600 p-1 px-2 text-xs rounded-lg mr-2">

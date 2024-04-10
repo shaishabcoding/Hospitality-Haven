@@ -79,7 +79,7 @@ const Navbar = () => {
               />
             </div>
             <button
-              className="btn bg-white hidden md:inline-block lg:flex items-center justify-center"
+              className="btn bg-white hidden md:flex items-center justify-center"
               onClick={logOut}
             >
               Logout <HiOutlineLogout />
