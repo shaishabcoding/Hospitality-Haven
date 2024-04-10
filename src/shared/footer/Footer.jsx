@@ -12,7 +12,7 @@ const Footer = () => {
           <Link className="link link-hover">About Us</Link>
           <Link className="link link-hover">Properties</Link>
         </nav>
-        <nav data-aos="flip-up" data-aos-delay="200">
+        <nav id="nav2" data-aos="flip-up" data-aos-delay="200">
           <h6 className="footer-title">Contact Us</h6>
           <p>Email: info@hospitality-haven.web.app</p>
           <p>Phone: +1 (123) 456-7890</p>
@@ -20,14 +20,22 @@ const Footer = () => {
         </nav>
       </footer>
       <footer className="footer px-10 py-4 border-t bg-gray-200 text-base-content border-gray-300">
-        <aside className="items-center grid-flow-col">
+        <aside
+          data-aos="fade-right"
+          data-aos-anchor-placement="#nav2"
+          className="items-center grid-flow-col"
+        >
           <img src="/logo.png" alt="logo" className="w-12 h-12" />
           <p>
             Hospitality Haven Ltd. <br />
             &copy; 2024, All rights reserved.
           </p>
         </aside>
-        <nav className="md:place-self-center md:justify-self-end">
+        <nav
+          data-aos="fade-left"
+          data-aos-anchor-placement="#nav2"
+          className="md:place-self-center md:justify-self-end"
+        >
           <div className="grid grid-flow-col gap-4">
             <a>
               <svg

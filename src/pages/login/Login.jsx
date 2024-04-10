@@ -119,7 +119,12 @@ const Login = () => {
       >
         OR
       </div>
-      <div data-aos="flip-left" data-aos-duration="800" data-aos-delay="1800">
+      <div
+        id="google-btn"
+        data-aos="flip-left"
+        data-aos-duration="800"
+        data-aos-delay="1800"
+      >
         <button
           className="btn flex items-center gap-2 text-sky-500 hover:text-white hover:bg-sky-500 bg-white rounded-lg border-2 border-sky-500 hover:border-0 w-full mb-4"
           onClick={() => {
@@ -132,7 +137,12 @@ const Login = () => {
           <FaGoogle /> Login with Google
         </button>
       </div>
-      <div data-aos="flip-left" data-aos-duration="800" data-aos-delay="2000">
+      <div
+        data-aos="flip-left"
+        data-aos-anchor-placement="#google-btn"
+        data-aos-duration="800"
+        data-aos-delay="2000"
+      >
         <button
           className="btn flex items-center gap-2 text-gray-700 hover:text-white hover:bg-gray-700 bg-white rounded-lg border-2 border-gray-700 hover:border-0 w-full"
           onClick={() => {
