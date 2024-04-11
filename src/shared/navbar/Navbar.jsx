@@ -59,7 +59,10 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <Link to="/" className="btn btn-ghost md:text-xl">
+        <Link
+          to="/"
+          className="btn btn-ghost text-base font-bold md:px-4 px-0 md:text-xl"
+        >
           <span data-aos="zoom-in-down">Hospitality Haven</span>
         </Link>
       </div>
@@ -78,7 +81,7 @@ const Navbar = () => {
               <img
                 data-aos="zoom-in-right"
                 src={user?.photoURL}
-                className="w-10 lg:w-12 mr-2 lg:mr-0 rounded-full ring-4 ring-sky-500"
+                className="w-10 lg:w-12 aspect-square object-center mr-2 lg:mr-0 rounded-full ring-4 ring-sky-500"
               />
             </div>
             <button

@@ -1,12 +1,13 @@
 import { useContext, useState } from "react";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import picture from "../../assets/icons/picture.svg";
+import imgHolder from "../../assets/icons/image-placeholder.jpg";
 import AuthContext from "../../contexts/auth/AuthContext";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import { BiUserPlus } from "react-icons/bi";
 import { Helmet } from "react-helmet-async";
+import testUsers from "../../assets/json/testUsers.json";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -39,6 +40,17 @@ const Register = () => {
       >
         Please Register
       </h2>
+      <datalist id="test-users">
+        {testUsers.map((user, index) => (
+          <option key={index} value={user} />
+        ))}
+      </datalist>
+      <img
+        data-aos="zoom-in"
+        data-aos-delay="500"
+        src={image ? image : imgHolder}
+        className="w-[150px] aspect-square object-center rounded-full bg-gray-50 ring-4 mx-auto mb-6"
+      />
       <form className="grid w-fit mx-auto gap-4" onSubmit={handleFormSubmit}>
         <label
           data-aos="zoom-in"
@@ -64,20 +76,26 @@ const Register = () => {
         <label
           data-aos="zoom-in"
           data-aos-delay="600"
-          className="input input-bordered flex items-center gap-2"
+          className="input input-bordered flex items-center gap-2 p-2 pr-2"
         >
-          <img src={image ? image : picture} className="w-[1em]" />
-          <input
-            type="url"
-            className="grow"
-            placeholder="Enter your image url"
-            required
-            {...register("image", {
-              onChange: (e) => {
-                setImage(e.target.value);
-              },
-            })}
+          <img
+            src={image ? image : imgHolder}
+            className="w-[2em] aspect-square object-center rounded-full bg-gray-50 ring-2"
           />
+          <div className="overflow-hidden flex grow ml-1">
+            <input
+              type="url"
+              list="test-users"
+              className="grow -mr-4"
+              placeholder="Enter your image url"
+              required
+              {...register("image", {
+                onChange: (e) => {
+                  setImage(e.target.value);
+                },
+              })}
+            />
+          </div>
         </label>
         <label
           data-aos="zoom-in"
@@ -136,7 +154,11 @@ const Register = () => {
           </button>
         </div>
         <div data-aos="flip-left" data-aos-delay="1500">
-          <button type="submit" className="btn w-full btn-primary ">
+          <button
+            type="submit"
+            id="register-btn"
+            className="btn w-full btn-primary "
+          >
             Register <BiUserPlus />
           </button>
         </div>
@@ -145,6 +167,7 @@ const Register = () => {
         data-aos="flip-left"
         data-aos-duration="800"
         data-aos-delay="1800"
+        data-aos-anchor-placement="#register-btn"
         className="w-fit mx-auto"
       >
         Already have an account?{" "}

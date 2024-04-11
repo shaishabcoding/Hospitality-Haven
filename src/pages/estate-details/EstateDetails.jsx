@@ -19,10 +19,13 @@ import { FaCartShopping } from "react-icons/fa6";
 import { Helmet } from "react-helmet-async";
 import { divIcon } from "leaflet";
 import { renderToStaticMarkup } from "react-dom/server";
+import getRandomColor from "../../utils/getRandomColor";
 
 const EstateDetails = () => {
   const { id } = useParams();
   const [isFav, setIsFav] = useState(hasLocalEstate("fav", id));
+  const [color, setColor] = useState(getRandomColor());
+  setTimeout(() => setColor(getRandomColor()), 2000);
   const estates = useContext(EstatesContext);
 
   const handleFav = () => {
@@ -155,8 +158,10 @@ const EstateDetails = () => {
             <Marker
               icon={divIcon({
                 html: renderToStaticMarkup(
-                  <div className="-translate-x-2 -translate-y-4">
-                    <FaMapMarkerAlt className="text-2xl" />
+                  <div className="-translate-x-2 relative left-[-2px] -translate-y-6 text-3xl">
+                    <div className="animate-bounce drop-shadow-lg transition">
+                      <FaMapMarkerAlt style={{ color }} />
+                    </div>
                   </div>
                 ),
               })}

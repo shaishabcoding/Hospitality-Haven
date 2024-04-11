@@ -2,10 +2,11 @@ import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AuthContext from "../../../contexts/auth/AuthContext";
 import { useForm } from "react-hook-form";
-import picture from "../../../assets/icons/picture.svg";
+import imgHolder from "../../../assets/icons/image-placeholder.jpg";
 import { toast } from "react-toastify";
 import { FaUserEdit } from "react-icons/fa";
 import { Helmet } from "react-helmet-async";
+import testUsers from "../../../assets/json/testUsers.json";
 
 const Update = () => {
   const navigate = useNavigate();
@@ -15,7 +16,7 @@ const Update = () => {
     defaultValues: {
       name: user.displayName,
       image: user.photoURL,
-      email: "john.doe@example.com",
+      email: user.email,
     },
   });
 
@@ -41,6 +42,17 @@ const Update = () => {
       >
         Update Profile
       </h2>
+      <datalist id="test-users">
+        {testUsers.map((user, index) => (
+          <option key={index} value={user} />
+        ))}
+      </datalist>
+      <img
+        data-aos="zoom-in"
+        data-aos-delay="500"
+        src={image ? image : imgHolder}
+        className="w-[150px] aspect-square object-center rounded-full bg-gray-50 ring-4 mx-auto mb-6"
+      />
       <form className="grid w-fit mx-auto gap-4" onSubmit={handleFormSubmit}>
         <label
           data-aos="zoom-in"
@@ -66,20 +78,26 @@ const Update = () => {
         <label
           data-aos="zoom-in"
           data-aos-delay="1200"
-          className="input input-bordered flex items-center gap-2"
+          className="input input-bordered flex items-center gap-2 pl-2 pr-2"
         >
-          <img src={image ? image : picture} className="w-[1em]" />
-          <input
-            type="url"
-            className="grow"
-            placeholder="Enter your image url"
-            required
-            {...register("image", {
-              onChange: (e) => {
-                setImage(e.target.value);
-              },
-            })}
+          <img
+            src={image ? image : imgHolder}
+            className="w-[2em] aspect-square object-center rounded-full bg-gray-50 ring-2"
           />
+          <div className="overflow-hidden flex grow ml-1">
+            <input
+              type="url"
+              className="grow -mr-4"
+              list="test-users"
+              placeholder="Enter your image url"
+              required
+              {...register("image", {
+                onChange: (e) => {
+                  setImage(e.target.value);
+                },
+              })}
+            />
+          </div>
         </label>
         <label
           data-aos="zoom-in"
@@ -99,7 +117,7 @@ const Update = () => {
             type="email"
             className="grow"
             placeholder="Enter your email"
-            value={user.email}
+            {...register("email")}
             disabled
           />
         </label>

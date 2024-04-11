@@ -23,8 +23,9 @@ const AuthProvider = ({ children }) => {
       updateProfile(user, {
         displayName: name,
         photoURL: image,
+      }).then(() => {
+        callback && callback(user);
       });
-      callback && callback(user);
     });
   };
   const logIn = ({ email, password }, callback = null) => {

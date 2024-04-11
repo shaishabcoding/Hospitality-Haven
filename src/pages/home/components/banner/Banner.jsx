@@ -21,7 +21,7 @@ const Banner = () => {
   ];
   return (
     <div className="hero min-h-screen bg-base-200 lg:rounded-lg lg:my-10 md:py-10">
-      <div className="hero-content flex-col lg:flex-row-reverse lg:p-28 gap-4 lg:gap-24 overflow-hidden">
+      <div className="hero-content flex-col lg:flex-row-reverse lg:p-28 gap-4 lg:gap-20 overflow-hidden">
         <Swiper
           data-aos="zoom-in"
           autoplay={{
@@ -46,7 +46,7 @@ const Banner = () => {
             </SwiperSlide>
           ))}
         </Swiper>
-        <div className="md:px-10">
+        <div className="md:px-10 lg:pl-0">
           <h1
             data-aos="fade-up"
             className="lg:text-5xl mt-4 lg:mt-0 text-2xl font-bold"
